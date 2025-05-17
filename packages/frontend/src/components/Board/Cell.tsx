@@ -5,7 +5,7 @@ import {
   BotComponent,
   DiamondButtonComponent,
   DiamondComponent,
-  FireComponent,
+  //  FireComponent,
   TeleportComponent,
 } from '../gameObject';
 
@@ -27,8 +27,8 @@ const renderGameCharacterComponent = (gameObject: IGameObjectDto) => {
       return <TeleportComponent />;
     case 'DiamondButtonGameObject':
       return <DiamondButtonComponent />;
-    case 'FireGameObject':
-      return <FireComponent {...gameObject.properties} />;
+    //  case 'FireGameObject':
+    //    return <FireComponent {...gameObject.properties} />;
 
     default:
       return null;
@@ -47,11 +47,10 @@ export const Cell: FC<CellProps> = memo((props) => {
   return (
     <div
       key={id}
-      className={`border-l w-full aspect-square relative overflow-hidden ${
-        gameObjects && gameObjects.length > 0
-          ? 'flex items-center justify-center'
-          : 'justify-center'
-      }`}
+      className={`border-l w-full aspect-square relative overflow-hidden ${gameObjects && gameObjects.length > 0
+        ? 'flex items-center justify-center'
+        : 'justify-center'
+        }`}
     >
       {gameObjects.map((gameObject, index) =>
         renderGameObject(gameObject, index),
